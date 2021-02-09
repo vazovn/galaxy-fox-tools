@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox monitor="true" tool_path="/cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_wrappers/">
+<!--    <tool file="module_test.xml" />
+    <tool file="testing.xml" />
+    <tool file="testing_static_slurm.xml" />
+    <tool file="tool_running_restricted.xml" />
+-->
+    <label text="HPC tools on SAGA" id="saga" />
+    <section name="NCBI BLAST+" id="hpc">
+      <tool file="blast/ncbi_tblastn_wrapper.xml" />
+    </section>
+
+<!--
+    <tool file="genomemapping/bwa.xml" />
+    <tool file="blast/ncbi_blastdbcmd_info.xml" />
+    <tool file="blast/ncbi_blastdbcmd_wrapper.xml" />
+    <tool file="blast/ncbi_blastn_wrapper.xml" />
+    <tool file="blast/ncbi_blastp_wrapper.xml" />
+    <tool file="blast/ncbi_blastx_wrapper.xml" />
+    <tool file="blast/ncbi_convert2blastmask_wrapper.xml" />
+    <tool file="blast/ncbi_deltablast_wrapper.xml" />
+    <tool file="blast/ncbi_dustmasker_wrapper.xml" />
+    <tool file="blast/ncbi_macros.xml" />
+    <tool file="blast/ncbi_makeblastdb.xml" />
+    <tool file="blast/ncbi_makeprofiledb.xml" />
+    <tool file="blast/ncbi_psiblast_wrapper.xml" />
+    <tool file="blast/ncbi_rpsblast_wrapper.xml" />
+    <tool file="blast/ncbi_rpstblastn_wrapper.xml" />
+    <tool file="blast/ncbi_segmasker_wrapper.xml" />
+    <tool file="blast/ncbi_tblastx_wrapper.xml" />
+    <tool file="blast/repository_dependencies.xml" />
+-->
+</toolbox>
