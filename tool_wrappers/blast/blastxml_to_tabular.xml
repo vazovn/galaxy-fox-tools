@@ -5,9 +5,9 @@
     </macros>
     <version_command>python $__tool_directory__/blastxml_to_tabular.py --version</version_command>
     <command detect_errors="aggressive"><![CDATA[
-      #source /work/projects/galaxy/tool_dependencies/development/_lifeportal/setup.source  
-      && module load BLAST+/2.10.1-gompi-2020a	
-      && python $__tool_directory__/ncbi_blast_plus/blastxml_to_tabular.py -o '$tabular_file'
+      source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
+      && module load BLAST+/2.10.1-gompi-2020a
+      && python $__tool_directory__/blast/blastxml_to_tabular.py -o '$tabular_file'
       #if $output.out_format == "cols":
       #set cols = (str($output.std_cols)+","+str($output.ext_cols)).replace("None", " ").replace(",,", ",").replace(",", " ")
       -c '$cols'

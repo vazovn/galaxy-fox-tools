@@ -6,9 +6,9 @@
     </macros>
     <expand macro="preamble" />
     <command detect_errors="aggressive"><![CDATA[
-      source /work/projects/galaxy/tool_dependencies/development/_lifeportal/setup.source
-      && module load blast+/2.8.1
-      && blastdbcmd -dbtype $db_opts.db_type -db "${db_opts.database.fields.path}" -info -out "$info"
+       source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
+       && module load BLAST+/2.10.1-gompi-2020a
+       && blastdbcmd -dbtype $db_opts.db_type -db "${db_opts.database.fields.path}" -info -out "$info"
     ]]></command>
     <inputs>
         <expand macro="input_conditional_choose_db_type" />
