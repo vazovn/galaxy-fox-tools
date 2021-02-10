@@ -9,7 +9,7 @@
       <tool file="module_test.xml" />
     </section>
 
-    <label text="HPC tools on SAGA" id="saga" />
+    <label text="NCBI BLAST+" id="blast" />
     <section name="NCBI BLAST+" id="hpc">
       <tool file="blast/ncbi_tblastn_wrapper.xml" />
       <tool file="blast/blastxml_to_tabular.xml" />
