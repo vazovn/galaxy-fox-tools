@@ -1,16 +1,18 @@
-<tool id="ncbi_makeprofiledb" name="NCBI BLAST+ makeprofiledb" version="@WRAPPER_VERSION@">
+<tool id="ncbi_makeprofiledb" name="NCBI BLAST+ makeprofiledb" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" profile="@PROFILE@">
     <description>Make profile database</description>
     <macros>
         <token name="@BINARY@">makeprofiledb</token>
         <import>ncbi_macros.xml</import>
     </macros>
     <expand macro="preamble" />
-    <command detect_errors="aggressive" strict="true"><![CDATA[
+    <command detect_errors="aggressive" strict="true">
 ##Unlike makeblastdb, makeprofiledb needs directory to exist already:
-source /work/projects/galaxy/tool_dependencies/development/_lifeportal/setup.source
-&& module load blast+/2.8.1
-&& mkdir -p $outfile.files_path 
-&& makeprofiledb -out '${os.path.join($outfile.files_path, "blastdb")}'
+source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
+&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
+&amp;&amp; mkdir -p $outfile.files_path 
+&amp;&amp; makeprofiledb
+-blastdb_version 4
+-out '${os.path.join($outfile.files_path, "blastdb")}'
 
 ##We turn $input_file into $infiles with a configfile entry defined below
 -in '$infiles'
@@ -35,7 +37,7 @@ source /work/projects/galaxy/tool_dependencies/development/_lifeportal/setup.sou
 -exclude_invalid $exclude_invalid
 
 -logfile '$outfile'
-   ]]> </command>
+    </command>
     <configfiles>
         <configfile name="infiles">
 #for $infile in $input_file

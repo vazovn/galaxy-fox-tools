@@ -1,16 +1,17 @@
-<tool id="ncbi_blastdbcmd_wrapper" name="NCBI BLAST+ blastdbcmd entry(s)" version="@WRAPPER_VERSION@">
+<tool id="ncbi_blastdbcmd_wrapper" name="NCBI BLAST+ blastdbcmd entry(s)" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" profile="@PROFILE@">
     <description>Extract sequence(s) from BLAST database</description>
     <macros>
         <token name="@BINARY@">blastdbcmd</token>
         <import>ncbi_macros.xml</import>
     </macros>
     <expand macro="preamble" />
-    <command detect_errors="aggressive" strict="true"><![CDATA[
+    <command detect_errors="aggressive" strict="true">
 ## The command is a Cheetah template which allows some Python based syntax.
 ## Lines starting hash hash are comments. Galaxy will turn newlines into spaces
 source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-&& module load BLAST+/2.10.1-gompi-2020a
-&& blastdbcmd -dbtype $db_opts.db_type -db "${db_opts.database.fields.path}"
+&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
+&amp;&amp; blastdbcmd
+@DBCMD_OPTS@
 
 ##TODO: What about -ctrl_a and -target_only as advanced options?
 
@@ -48,7 +49,7 @@ source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepar
 #else:
 | sed 's/&gt;\(lcl|\|gnl|BL_ORD_ID|[0-9]* \)/&gt;/1' &gt; "$seq"
 #end if
-    ]]></command>
+    </command>
     <inputs>
         <expand macro="input_conditional_choose_db_type" />
         <conditional name="id_opts">
@@ -69,12 +70,15 @@ source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepar
         </param>
     </inputs>
     <outputs>
-        <data name="seq" format="fasta" label="Sequences from ${db_opts.database.fields.name}" />
+
+        <data name="seq" format="fasta" label="Sequences from blastdbcmd @ON_DBCMD_OPTS@">
+        </data>
     </outputs>
     <tests>
         <test>
             <param name="db_opts|db_type" value="prot" />
-            <param name="db_opts|database" value="four_human_proteins" />
+            <param name="db_opts|db_origin|database" value="four_human_proteins" />
+            <param name="db_opts|db_origin|db_origin_selector" value="db" />
             <param name="id_opts|id_type" value="prompt" />
             <param name="id_opts|entries" value="all" />
             <param name="outfmt" value="original" />
@@ -83,7 +87,7 @@ source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepar
         <test>
             <!-- This used to recover the original FASTA file, but had GI numbers -->
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="rhodopsin_nucs" />
+            <param name="db_opts|db_origin|database" value="rhodopsin_nucs" />
             <param name="id_opts|id_type" value="prompt" />
             <param name="id_opts|entries" value="all" />
             <param name="outfmt" value="original" />
@@ -92,15 +96,15 @@ source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepar
         <test>
             <!-- This uses various start end frame combinations but all recover full sequence -->
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="rhodopsin_nucs" />
+            <param name="db_opts|db_origin|database" value="rhodopsin_nucs" />
             <param name="id_opts|id_type" value="file" />
             <param name="id_opts|entries" value="rhodopsin_nucs.blastdbcmd.txt" ftype="txt" />
             <param name="outfmt" value="original" />
-            <output name="seq" file="rhodopsin_nucs.no_gi.fasta" ftype="fasta" />
+            <output name="seq" file="rhodopsin_nucs.no_gi.region.fasta" ftype="fasta" />
         </test>
         <test>
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="rhodopsin_nucs" />
+            <param name="db_opts|db_origin|database" value="rhodopsin_nucs" />
             <param name="id_opts|id_type" value="prompt" />
             <param name="id_opts|entries" value="U59921.1" />
             <param name="outfmt" value="original" />
@@ -108,7 +112,8 @@ source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepar
         </test>
         <test>
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="rhodopsin_nucs" />
+            <!-- look in two databases for this entry -->
+            <param name="db_opts|db_origin|database" value="rhodopsin_nucs,three_human_mRNA" />
             <param name="id_opts|id_type" value="prompt" />
             <param name="id_opts|entries" value="gi|2734705|gb|U59921.1|BBU59921" />
             <param name="outfmt" value="original" />

@@ -1,21 +1,21 @@
-<tool id="blastxml_to_tabular" name="BLAST XML to tabular" version="@WRAPPER_VERSION@">
+<tool id="blastxml_to_tabular" name="BLAST XML to tabular" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" profile="@PROFILE@">
     <description>Convert BLAST XML output to tabular</description>
     <macros>
         <import>ncbi_macros.xml</import>
     </macros>
     <version_command>python $__tool_directory__/blastxml_to_tabular.py --version</version_command>
-    <command detect_errors="aggressive"><![CDATA[
-      source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-      && module load BLAST+/2.10.1-gompi-2020a
-      && python $__tool_directory__/blast/blastxml_to_tabular.py -o '$tabular_file'
-      #if $output.out_format == "cols":
-      #set cols = (str($output.std_cols)+","+str($output.ext_cols)).replace("None", " ").replace(",,", ",").replace(",", " ")
-      -c '$cols'
-      #else
-      -c '$output.out_format' 
-      #end if
-      #for i in $blastxml_file#'${i}' #end for#
-    ]]></command>
+    <command detect_errors="aggressive">
+source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
+&amp;&amp; module load lifeportal/0.1
+&amp;&amp; python $__tool_directory__/blastxml_to_tabular.py -o '$tabular_file'
+#if $output.out_format == "cols":
+#set cols = (str($output.std_cols)+","+str($output.ext_cols)).replace("None", " ").replace(",,", ",").replace(",", " ")
+-c '$cols'
+#else
+-c '$output.out_format'
+#end if
+#for i in $blastxml_file#'${i}' #end for#
+    </command>
     <inputs>
         <param name="blastxml_file" type="data" format="blastxml" multiple="true" label="BLAST results as XML"/>
         <conditional name="output">
