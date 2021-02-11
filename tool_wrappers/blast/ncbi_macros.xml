@@ -1,16 +1,16 @@
 <macros>
-    <token name="@WRAPPER_VERSION@">0.3.2</token>
+    <token name="@TOOL_VERSION@">2.10.1</token>
+    <token name="@VERSION_SUFFIX@">0</token>
+    <token name="@PROFILE@">16.10</token>
     <xml name="parallelism">
         <!-- If job splitting is enabled, break up the query file into parts -->
         <parallelism method="multi" split_inputs="query" split_mode="to_size" split_size="1000" merge_outputs="output1" />
     </xml>
 
     <xml name="preamble">
-       <!--  
         <requirements>
-            <requirement type="package" version="2.7.1">blast</requirement>
+            <requirement type="package" version="@TOOL_VERSION@">blast</requirement>
         </requirements>
-        -->
         <version_command>@BINARY@ -version</version_command>
     </xml>
 
@@ -428,14 +428,40 @@
               <option value="prot">Protein</option>
             </param>
             <when value="nucl">
-                <param name="database" argument="-db" type="select" multiple="true" label="Nucleotide BLAST database">
-                    <options from_data_table="blastdb" />
-                </param>
+                <conditional name="db_origin">
+                    <param name="db_origin_selector" type="select" label="Subject database/sequences">
+                          <option value="db" selected="true">Locally installed BLAST database</option>
+                          <option value="histdb">BLAST database from your history</option>
+                    </param>
+                    <when value="db">
+                        <param name="database" argument="-db" type="select" multiple="true" label="Nucleotide BLAST database">
+                            <options from_data_table="blastdb" />
+                        </param>
+                        <param name="histdb" type="hidden" value="" />
+                    </when>
+                    <when value="histdb">
+                        <param name="database" type="hidden" value="" />
+                        <param name="histdb" type="data" format="blastdbn" label="Nucleotide BLAST database" />
+                    </when>
+                </conditional>
             </when>
             <when value="prot">
-                <param name="database" argument="-db" type="select" multiple="true" label="Protein BLAST database">
-                    <options from_data_table="blastdb_p" />
-                </param>
+                <conditional name="db_origin">
+                    <param name="db_origin_selector" type="select" label="Subject database/sequences">
+                          <option value="db" selected="true">Locally installed BLAST database</option>
+                          <option value="histdb">BLAST database from your history</option>
+                      </param>
+                      <when value="db">
+                          <param name="database" argument="-db" type="select" multiple="true" label="Protein BLAST database">
+                            <options from_data_table="blastdb_p" />
+                        </param>
+                        <param name="histdb" type="hidden" value="" />
+                      </when>
+                      <when value="histdb">
+                        <param name="database" type="hidden" value="" />
+                        <param name="histdb" type="data" format="blastdbp" label="Protein BLAST database" />
+                      </when>
+                </conditional>
             </when>
         </conditional>
     </xml>
@@ -465,6 +491,12 @@
         <param argument="-word_size" type="integer" min="2" optional="true"
         label="Word size for wordfinder algorithm"
         help="Leave blank for default, otherwise minimum 2" />
+    </xml>
+
+    <xml name="input_word_size_blastn">
+        <param argument="-word_size" type="integer" min="4" optional="true"
+        label="Word size for wordfinder algorithm"
+        help="Leave blank for default, otherwise minimum 4" />
     </xml>
 
     <xml name="input_strand">
@@ -576,6 +608,17 @@
 #end if
     ]]></token>
 
+    <!-- Implement -dbtype and -db command line options (in blastdbcmd) -->
+    <token name="@DBCMD_OPTS@"><![CDATA[
+-dbtype "$db_opts.db_type"
+#if $db_opts.db_origin.db_origin_selector=="db":
+  -db "${db_opts.db_origin.database.fields.path.replace(',',' ')}"
+#else if $db_opts.db_origin.db_origin_selector=="histdb":
+  -db '${os.path.join($db_opts.db_origin.histdb.extra_files_path, "blastdb")}'
+#end if
+    ]]></token>
+
+    <!-- Implement -db ... / -subject ... command line options -->
     <token name="@BLAST_DB_SUBJECT@"><![CDATA[
 #if $db_opts.db_opts_selector == "db":
   -db '${" ".join(str($db_opts.database.fields.path).split(","))}'
@@ -698,6 +741,15 @@ $adv_opts.parse_deflines
 '${db_opts.histdb.name}'
 #else
 '${db_opts.subject.name}'
+#end if
+]]></token>
+
+    <!-- @ON_DBCMD_OPTS@ is for use with @DBCMD_OPTS@ -->
+    <token name="@ON_DBCMD_OPTS@"><![CDATA[
+#if str($db_opts.db_origin.db_origin_selector)=="db"
+'${db_opts.db_origin.database}'
+#else
+'${db_opts.db_origin.histdb.name}'
 #end if
 ]]></token>
 

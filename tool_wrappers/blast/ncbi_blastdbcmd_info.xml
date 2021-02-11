@@ -1,36 +1,43 @@
-<tool id="ncbi_blastdbcmd_info" name="NCBI BLAST+ database info" version="@WRAPPER_VERSION@">
+<tool id="ncbi_blastdbcmd_info" name="NCBI BLAST+ database info" version="@TOOL_VERSION@+galaxy@VERSION_SUFFIX@" profile="@PROFILE@">
     <description>Show BLAST database information from blastdbcmd</description>
     <macros>
         <token name="@BINARY@">blastdbcmd</token>
         <import>ncbi_macros.xml</import>
     </macros>
     <expand macro="preamble" />
-    <command detect_errors="aggressive"><![CDATA[
-       source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-       && module load BLAST+/2.10.1-gompi-2020a
-       && blastdbcmd -dbtype $db_opts.db_type -db "${db_opts.database.fields.path}" -info -out "$info"
-    ]]></command>
+    <command detect_errors="aggressive">
+source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
+&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
+&amp;&amp; blastdbcmd
+@DBCMD_OPTS@
+-info -out "$info"
+    </command>
     <inputs>
         <expand macro="input_conditional_choose_db_type" />
     </inputs>
     <outputs>
-        <data name="info" format="txt" label="${db_opts.database.fields.name} info" />
+        <data name="info" format="txt" label="@ON_DBCMD_OPTS@ info" />
     </outputs>
     <tests>
         <test>
             <param name="db_opts|db_type" value="prot" />
-            <param name="db_opts|database" value="four_human_proteins" />
-            <output name="info" file="four_human_proteins.dbinfo.txt" ftype="txt" lines_diff="4" />
+            <param name="db_opts|db_origin|database" value="four_human_proteins" />
+            <output name="info" file="four_human_proteins.dbinfo.txt" ftype="txt" compare="contains" />
         </test>
         <test>
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="three_human_mRNA" />
-            <output name="info" file="three_human_mRNA.dbinfo.txt" ftype="txt" lines_diff="4" />
+            <param name="db_opts|db_origin|database" value="three_human_mRNA" />
+            <output name="info" file="three_human_mRNA.dbinfo.txt" ftype="txt" compare="contains" />
         </test>
         <test>
             <param name="db_opts|db_type" value="nucl" />
-            <param name="db_opts|database" value="rhodopsin_nucs" />
-            <output name="info" file="rhodopsin_nucs.dbinfo.txt" ftype="txt" lines_diff="4" />
+            <param name="db_opts|db_origin|database" value="rhodopsin_nucs" />
+            <output name="info" file="rhodopsin_nucs.dbinfo.txt" ftype="txt" compare="contains" />
+        </test>
+        <test>
+            <param name="db_opts|db_type" value="nucl" />
+            <param name="db_opts|db_origin|database" value="three_human_mRNA,rhodopsin_nucs" />
+            <output name="info" file="three_human_mRNA_and_rhodopsin_nucs.dbinfo.txt" ftype="txt" compare="contains" />
         </test>
     </tests>
     <help>
