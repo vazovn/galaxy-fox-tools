@@ -49,6 +49,8 @@
 	<tool id="ncbi_segmasker_wrapper" destination="slurm_bigmem"/>
 	<tool id="ncbi_tblastn_wrapper" destination="slurm_bigmem"/>
 	<tool id="ncbi_tblastx_wrapper" destination="slurm_bigmem"/>
+	<tool id="bwa_mem" destination="slurm_bigmem"/>
+	<tool id="bwa" destination="slurm_bigmem"/>
     </tools>
 
     <limits>

@@ -31,6 +31,11 @@
       <tool file="blast/ncbi_tblastn_wrapper.xml" />
       <tool file="blast/ncbi_tblastx_wrapper.xml" />
       <tool file="blast/repository_dependencies.xml" />
-
     </section>
+ 
+    <section name="bwa" id="bwa">
+      <tool file="bwa/bwa_mem.xml" />
+      <tool file="bwa/bwa.xml" />
+    </section>
+
 </toolbox>
