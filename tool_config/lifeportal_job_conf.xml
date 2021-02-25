@@ -30,7 +30,7 @@
      
      <tools>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
-        <tool id="Module_test" destination="slurm_minimal" resources="saga"/>
+        <tool id="module_test" destination="slurm_minimal" resources="saga"/>
         <tool id="ncbi_tblastn_wrapper" destination="slurm_bigmem"/>
 	<tool id="blastxml_to_tabular" destination="slurm_bigmem"/>
 	<tool id="ncbi_blastdbcmd_info" destination="slurm_bigmem"/>

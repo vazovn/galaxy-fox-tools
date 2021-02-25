@@ -1,4 +1,4 @@
-<tool id="Module_test" name="Module_test">
+<tool id="module_test" name="Test module load">
     <command>
         <![CDATA[hostname > "$output1"]]>
      <!--   <![CDATA[hostname > "$output1";whoami >> "$output1"; pwd >> "$output1"; source /etc/profile.d/z00_lmod.sh; source /etc/profile.d/z01_StdEnv.sh; module list]]> -->

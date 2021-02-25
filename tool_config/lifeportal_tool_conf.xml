@@ -5,6 +5,7 @@
     <tool file="testing_static_slurm.xml" />
     <tool file="tool_running_restricted.xml" />
 -->
+
     <section name="Tests" id="test">
       <tool file="module_test.xml" />
     </section>
