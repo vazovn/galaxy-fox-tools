@@ -51,6 +51,7 @@
 	<tool id="ncbi_tblastx_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="bwa_mem" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="bwa" destination="slurm_bigmem"  resources="saga"/>
+	<tool id="spades" destination="slurm_bigmem"  resources="saga"/>
     </tools>
 
     <limits>
