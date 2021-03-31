@@ -4,3 +4,4 @@
 
 source /etc/profile.d/z00_lmod.sh
 source /etc/profile.d/z01_StdEnv.sh
+export PYTHONPATH=/cluster/shared/nn9108k/lifeportal_saga_data/tools/lib:$PYTHONPATH
