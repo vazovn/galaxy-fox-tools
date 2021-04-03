@@ -6,9 +6,7 @@
     </macros>
     <expand macro="preamble" />
     <command detect_errors="aggressive">
-source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
-&amp;&amp; blastdbcmd
+blastdbcmd
 @DBCMD_OPTS@
 -info -out "$info"
     </command>
