@@ -6,8 +6,8 @@
     <tool file="tool_running_restricted.xml" />
 -->
 
-    <section name="Tests" id="test">
-      <tool file="module_test.xml" />
+    <section name="Monitoring" id="get_job_status">
+      <tool file="monitoring/get_job_status.xml" />
     </section>
 
     <label text="HPC tools" id="hpc" />
