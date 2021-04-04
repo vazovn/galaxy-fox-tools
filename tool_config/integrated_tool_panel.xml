@@ -29,7 +29,13 @@
 
     <label id="hpc" text="HPC tools" version="" />
 
-    <section id="bwa" name="BWA" version="">
+    <section id="Assembly" name="BWA" version="">
+
+        <tool id="spades" />
+
+    </section>
+
+    <section id="Mapping" name="BWA" version="">
 
         <tool id="bwa" />
 

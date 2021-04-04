@@ -7,7 +7,7 @@
 -->
 
     <section name="Monitoring" id="get_job_status">
-      <tool file="monitoring/get_job_status.xml" />
+      <tool file="monitoring/g_squeue.xml" />
     </section>
 
     <label text="HPC tools" id="hpc" />
