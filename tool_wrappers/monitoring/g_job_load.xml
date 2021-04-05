@@ -1,9 +1,9 @@
-<tool id="g_squeue" name="squeue(Check job status)">
+<tool id="g_load" name="freepe(Check load)">
     <requirements>
         <requirement type="package" version="1.0.0">get_job_status</requirement>
     </requirements>
     <command>
-        <![CDATA[ g_squeue.sh > "$output1" ]]>
+        <![CDATA[ g_load.sh > "$output1" ]]>
     </command>
     <outputs>
         <data name="output1" format="txt" />
