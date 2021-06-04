@@ -5,13 +5,15 @@
     <tool file="testing_static_slurm.xml" />
     <tool file="tool_running_restricted.xml" />
 -->
-    <section name="Tests" id="test">
-      <tool file="module_test.xml" />
+
+    <section name="Monitoring" id="get_job_status">
+      <tool file="monitoring/g_squeue.xml" />
+      <tool file="monitoring/g_job_load.xml" />
     </section>
 
     <label text="HPC tools" id="hpc" />
     <section name="NCBI BLAST" id="blast">
-      <tool file="blast/ncbi_tblastn_wrapper.xml" />
+      <tool file="blast/ncbi_tblastn_wrapper.xml" labels="New"/>
       <tool file="blast/blastxml_to_tabular.xml" />
       <tool file="blast/ncbi_blastdbcmd_info.xml" />
       <tool file="blast/ncbi_blastdbcmd_wrapper.xml" />
@@ -33,9 +35,10 @@
       <tool file="blast/repository_dependencies.xml" />
     </section>
  
-    <section name="bwa" id="bwa">
+    <section name="Genomics" id="bwa">
       <tool file="bwa/bwa_mem.xml" />
       <tool file="bwa/bwa.xml" />
+      <tool file="spades/spades.xml" />
     </section>
 
 </toolbox>

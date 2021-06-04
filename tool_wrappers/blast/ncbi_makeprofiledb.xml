@@ -7,9 +7,7 @@
     <expand macro="preamble" />
     <command detect_errors="aggressive" strict="true">
 ##Unlike makeblastdb, makeprofiledb needs directory to exist already:
-source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
-&amp;&amp; mkdir -p $outfile.files_path 
+mkdir -p $outfile.files_path 
 &amp;&amp; makeprofiledb
 -blastdb_version 4
 -out '${os.path.join($outfile.files_path, "blastdb")}'

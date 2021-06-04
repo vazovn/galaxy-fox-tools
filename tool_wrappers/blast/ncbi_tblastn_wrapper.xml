@@ -9,9 +9,7 @@
     <command detect_errors="aggressive">
 ## The command is a Cheetah template which allows some Python based syntax.
 ## Lines starting hash hash are comments. Galaxy will turn newlines into spaces
-source /cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_setup/prepare.source
-&amp;&amp; module load BLAST+/2.10.1-gompi-2020a
-&amp;&amp; tblastn
+tblastn
 @QUERY@
 @BLAST_DB_SUBJECT@
 -task $blast_type
