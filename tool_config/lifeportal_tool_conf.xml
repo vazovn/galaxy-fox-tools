@@ -6,6 +6,11 @@
     <tool file="tool_running_restricted.xml" />
 -->
 
+    <section name="Get data" id="get_data">
+      <tool file="datatransfer/g_job_load.xml" />
+      <tool file="datatransfer/upload.xml" />
+    </section>
+
     <section name="Monitoring" id="get_job_status">
       <tool file="monitoring/g_squeue.xml" />
       <tool file="monitoring/g_job_load.xml" />
@@ -21,7 +26,6 @@
       <tool file="blast/ncbi_blastp_wrapper.xml" />
       <tool file="blast/ncbi_blastx_wrapper.xml" />
       <tool file="blast/ncbi_convert2blastmask_wrapper.xml" />
-      <tool file="blast/ncbi_deltablast_wrapper.xml" />
       <tool file="blast/ncbi_dustmasker_wrapper.xml" />
       <tool file="blast/ncbi_macros.xml" />
       <tool file="blast/ncbi_makeblastdb.xml" />
@@ -39,6 +43,10 @@
       <tool file="bwa/bwa_mem.xml" />
       <tool file="bwa/bwa.xml" />
       <tool file="spades/spades.xml" />
+    </section>
+
+    <section name="Sequence Manupulation" id="seqm">
+      <tool file="sequence-manipulation/rgFastQC.xml" />
     </section>
 
 </toolbox>

@@ -32,6 +32,8 @@
      </destinations>
      
      <tools>
+        <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga"/>
+        <tool id="sagaupload" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="module_test" destination="slurm_minimal" resources="saga"/>
         <tool id="g_squeue" destination="slurm_micro" resources="saga"/>
@@ -44,7 +46,6 @@
 	<tool id="ncbi_blastp_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="ncbi_blastx_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="ncbi_convert2blastmask_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_deltablast_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="ncbi_dustmasker_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="ncbi_makeblastdb" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="ncbi_makeprofiledb" destination="slurm_bigmem"  resources="saga"/>
@@ -57,6 +58,7 @@
 	<tool id="bwa_mem" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="bwa" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="spades" destination="slurm_bigmem"  resources="saga"/>
+	<tool id="fastqc" destination="slurm_bigmem"  resources="saga"/>
     </tools>
 
     <limits>
