@@ -20,13 +20,13 @@
         <destination id="slurm_static" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=05:00 --mem-per-cpu=2 --nodes=1 --ntasks-per-node=1</param>
         </destination>
-        <destination id="slurm_bigmem" runner="slurm">
+        <destination id="generate_slurm_job_params" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=24:05:00 --partition=bigmem --mem-per-cpu=12288 --nodes=1 --ntasks=4</param>
         </destination>
         <destination id="slurm_minimal" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=10:00 --mem-per-cpu=1024 --nodes=1 --ntasks=1</param>
         </destination>
-        <destination id="slurm_micro" runner="slurm">
+        <destination id="generate_slurm_job_params" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=1:00 --mem-per-cpu=512 --nodes=1 --ntasks=1</param>
         </destination>
      </destinations>
@@ -34,31 +34,31 @@
      <tools>
         <tool id="g_squeue" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga"/>
-        <tool id="sagaupload" destination="slurm_micro" resources="saga"/>
+        <tool id="sagaupload" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="module_test" destination="slurm_minimal" resources="saga"/>
-        <tool id="g_load" destination="slurm_micro" resources="saga"/>
-        <tool id="ncbi_tblastn_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="blastxml_to_tabular" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_blastdbcmd_info" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_blastdbcmd_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_blastn_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_blastp_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_blastx_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_convert2blastmask_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_dustmasker_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_makeblastdb" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_makeprofiledb" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_psiblast_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_rpsblast_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_rpstblastn_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_segmasker_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_tblastn_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="ncbi_tblastx_wrapper" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="bwa_mem" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="bwa" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="spades" destination="slurm_bigmem"  resources="saga"/>
-	<tool id="fastqc" destination="slurm_bigmem"  resources="saga"/>
+        <tool id="g_load" destination="generate_slurm_job_params" resources="saga"/>
+        <tool id="ncbi_tblastn_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="blastxml_to_tabular" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_blastdbcmd_info" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_blastdbcmd_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_blastn_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_blastp_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_blastx_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_convert2blastmask_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_dustmasker_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_makeblastdb" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_makeprofiledb" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_psiblast_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_rpsblast_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_rpstblastn_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_segmasker_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_tblastn_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="ncbi_tblastx_wrapper" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="bwa_mem" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="bwa" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="spades" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="fastqc" destination="generate_slurm_job_params"  resources="saga"/>
     </tools>
 
     <limits>
