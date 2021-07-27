@@ -32,11 +32,11 @@
      </destinations>
      
      <tools>
+        <tool id="g_squeue" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="sagaupload" destination="slurm_micro" resources="saga"/>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="module_test" destination="slurm_minimal" resources="saga"/>
-        <tool id="g_squeue" destination="slurm_micro" resources="saga"/>
         <tool id="g_load" destination="slurm_micro" resources="saga"/>
         <tool id="ncbi_tblastn_wrapper" destination="slurm_bigmem"  resources="saga"/>
 	<tool id="blastxml_to_tabular" destination="slurm_bigmem"  resources="saga"/>
