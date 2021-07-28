@@ -41,6 +41,11 @@
 
     </section>
 
+    <section id="Bowtie2" name="BWA" version="">
+
+        <tool id="bowtie2" />
+
+    </section>
     <section id="blast" name="NCBI BLAST+" version="">
 
         <tool id="ncbi_tblastn_wrapper" />

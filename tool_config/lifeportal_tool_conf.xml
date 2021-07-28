@@ -43,6 +43,7 @@
       <tool file="bwa/bwa_mem.xml" />
       <tool file="bwa/bwa.xml" />
       <tool file="spades/spades.xml" />
+      <tool file="bowtie2/bowtie2_wrapper.xml" />
     </section>
 
     <section name="Sequence Manupulation" id="seqm">
