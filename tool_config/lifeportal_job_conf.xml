@@ -20,14 +20,8 @@
         <destination id="slurm_static" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=05:00 --mem-per-cpu=2 --nodes=1 --ntasks-per-node=1</param>
         </destination>
-        <destination id="generate_slurm_job_params" runner="slurm">
-          <param id="nativeSpecification">--account=nn9108k --time=24:05:00 --partition=bigmem --mem-per-cpu=12288 --nodes=1 --ntasks=4</param>
-        </destination>
         <destination id="slurm_minimal" runner="slurm">
           <param id="nativeSpecification">--account=nn9108k --time=10:00 --mem-per-cpu=1024 --nodes=1 --ntasks=1</param>
-        </destination>
-        <destination id="generate_slurm_job_params" runner="slurm">
-          <param id="nativeSpecification">--account=nn9108k --time=1:00 --mem-per-cpu=512 --nodes=1 --ntasks=1</param>
         </destination>
      </destinations>
      
