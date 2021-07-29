@@ -7,8 +7,8 @@
 -->
 
     <section name="Get data" id="get_data">
-      <tool file="datatransfer/g_job_load.xml" />
       <tool file="datatransfer/upload.xml" />
+      <tool file="datatransfer/g_get_from_home.xml" />
     </section>
 
     <section name="Monitoring" id="get_job_status">

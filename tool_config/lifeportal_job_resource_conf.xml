@@ -12,4 +12,8 @@
   <param label="Project" name="project" type="select" value="" help="Project to assign resource allocation to.">
        <option value="----">Select the project you want to run the job</option>
   </param>
+  
+  <param label="Saga home folder" name="userhome" type="select" value="" help="Project to assign resource allocation to.">
+       <option value="----">Select the project you want to run the job</option>
+  </param>
 </parameters>

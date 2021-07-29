@@ -21,9 +21,8 @@
 
     <section id="getext" name="Get Data" version="">
 
-        <tool id="upload1" />
-
-        <tool id="ucsc_table_direct1" />
+        <tool id="upload" />
+        <tool id="g_get_from_home" />
 
     </section>
 

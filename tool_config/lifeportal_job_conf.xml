@@ -26,9 +26,9 @@
      </destinations>
      
      <tools>
+        <tool id="upload" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="g_squeue" destination="generate_slurm_job_params" resources="saga"/>
-        <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga"/>
-        <tool id="sagaupload" destination="generate_slurm_job_params" resources="saga"/>
+        <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga_home"/>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="module_test" destination="slurm_minimal" resources="saga"/>
         <tool id="g_load" destination="generate_slurm_job_params" resources="saga"/>
@@ -71,6 +71,7 @@
     <resources>
         <group id="saga2">processors,memory,time,project</group>
         <group id="saga">nodes,ntasks,memory,time,partition,project</group>
+        <group id="saga_home">nodes,ntasks,memory,time,partition,project,userhome</group>
    </resources>
 
  </job_conf>
