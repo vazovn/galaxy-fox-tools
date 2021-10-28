@@ -70,8 +70,8 @@
     
     <resources>
         <group id="saga2">processors,memory,time,project</group>
-        <group id="saga">nodes,ntasks,memory,time,partition,project</group>
-        <group id="saga_home">nodes,ntasks,memory,time,partition,project,userhome</group>
+        <group id="saga">nodes,processors,memory,time,partition,project</group>
+        <group id="saga_home">nodes,processors,memory,time,partition,project,userhome</group>
    </resources>
 
  </job_conf>
