@@ -4,4 +4,4 @@ if [ -z "$MODULEPATH" ] ; then
    . /etc/profile.d/z01_StdEnv.sh
 fi
 
-module load SPAdes/3.13.0-foss-2018b
+module load Trinity/2.10.0-foss-2020a-Python-3.8.2

@@ -4,14 +4,14 @@
     <tool file="testing.xml" />
     <tool file="testing_static_slurm.xml" />
     <tool file="tool_running_restricted.xml" />
--->
 
     <section name="Get data" id="get_data">
       <tool file="datatransfer/upload.xml" />
       <tool file="datatransfer/g_get_from_home.xml" />
     </section>
 
-    <section name="Monitoring" id="get_job_status">
+-->
+    <section name="SAGA monitoring tools" id="get_job_status">
       <tool file="monitoring/g_squeue.xml" />
       <tool file="monitoring/g_job_load.xml" />
     </section>
@@ -48,6 +48,10 @@
 
     <section name="Sequence Manupulation" id="seqm">
       <tool file="sequence-manipulation/rgFastQC.xml" />
+    </section>
+    
+    <section name="RNA-seq" id="RNAseq">
+      <tool file="RNA-seq/trinity.xml" />
     </section>
 
 </toolbox>

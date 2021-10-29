@@ -79,4 +79,9 @@
 
     </section>
 
+    <section id="RNAseq" name="RNA-seq" version="">
+
+        <tool id="trinity" />
+
+    </section>
 </toolbox>
