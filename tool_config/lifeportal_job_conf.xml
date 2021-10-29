@@ -26,7 +26,8 @@
      </destinations>
      
      <tools>
-        <tool id="upload" destination="generate_slurm_job_params" resources="saga"/>
+        <tool id="upload" destination="local" resources="saga"/>
+       
         <tool id="g_squeue" destination="generate_slurm_job_params" resources="saga"/>
         <tool id="g_get_from_home" destination="generate_slurm_job_params" resources="saga_home"/>
         <tool id="testing" destination="generate_slurm_job_params" resources="saga"/>
@@ -56,7 +57,8 @@
 	<tool id="bowtie2" destination="generate_slurm_job_params"  resources="saga"/>
 	<tool id="trinity" destination="generate_slurm_job_params"  resources="saga"/>
 	<tool id="bam_to_sam" destination="generate_slurm_job_params"  resources="saga"/>
-    </tools>
+	<tool id="fastq_groomer" destination="generate_slurm_job_params"  resources="saga"/>
+      </tools>
 
     <limits>
         <limit type="registered_user_concurrent_jobs">5</limit>

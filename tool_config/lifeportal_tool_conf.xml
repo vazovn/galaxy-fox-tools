@@ -48,11 +48,12 @@
       <tool file="bwa/bwa.xml" />
       <tool file="spades/spades.xml" />
       <tool file="bowtie2/bowtie2_wrapper.xml" />
-      <tool file="sequence-manipulation/bam_to_sam/bam_to_sam.xml" />
     </section>
 
     <section name="Sequence Manupulation" id="seqm">
       <tool file="sequence-manipulation/rgFastQC.xml" />
+      <tool file="sequence-manipulation/bam_to_sam/bam_to_sam.xml" />
+      <tool file="sequence-manipulation/fastq_groomer/fastq_groomer.xml" />
     </section>
     
     <section name="RNA-seq" id="RNAseq">
