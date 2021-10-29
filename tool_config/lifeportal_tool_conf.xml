@@ -11,6 +11,10 @@
     </section>
 
 -->
+    <section name="Get data" id="get_data">
+      <tool file="data_source/upload.xml" />
+    </section>
+    
     <section name="SAGA monitoring tools" id="get_job_status">
       <tool file="monitoring/g_squeue.xml" />
       <tool file="monitoring/g_job_load.xml" />
@@ -44,6 +48,7 @@
       <tool file="bwa/bwa.xml" />
       <tool file="spades/spades.xml" />
       <tool file="bowtie2/bowtie2_wrapper.xml" />
+      <tool file="sequence-manipulation/bam_to_sam/bam_to_sam.xml" />
     </section>
 
     <section name="Sequence Manupulation" id="seqm">

@@ -55,6 +55,7 @@
 	<tool id="fastqc" destination="generate_slurm_job_params"  resources="saga"/>
 	<tool id="bowtie2" destination="generate_slurm_job_params"  resources="saga"/>
 	<tool id="trinity" destination="generate_slurm_job_params"  resources="saga"/>
+	<tool id="bam_to_sam" destination="generate_slurm_job_params"  resources="saga"/>
     </tools>
 
     <limits>
