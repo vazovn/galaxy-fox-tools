@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<toolbox monitor="true" tool_path="/cluster/shared/nn9108k/lifeportal_saga_data/tools/prod/tool_wrappers/">
+<toolbox monitor="true" tool_path="/cluster/galaxy/data/tools/prod/tool_wrappers/">
 <!--    <tool file="module_test.xml" />
     <tool file="testing.xml" />
     <tool file="testing_static_slurm.xml" />
