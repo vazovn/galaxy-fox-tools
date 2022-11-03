@@ -48,6 +48,7 @@
       <tool file="bwa/bwa.xml" />
       <tool file="spades/spades.xml" />
       <tool file="bowtie2/bowtie2_wrapper.xml" />
+      <tool file="mitos/mitos.xml" />
     </section>
 
     <section name="Sequence Manupulation" id="seqm">
