@@ -51,7 +51,7 @@
       <tool file="mitos/mitos.xml" />
     </section>
 
-    <section name="Sequence Manupulation" id="seqm">
+    <section name="Sequence Manipulation" id="seqm">
       <tool file="sequence-manipulation/rgFastQC.xml" />
       <tool file="sequence-manipulation/bam_to_sam/bam_to_sam.xml" />
       <tool file="sequence-manipulation/fastq_groomer/fastq_groomer.xml" />
